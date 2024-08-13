@@ -13,7 +13,7 @@
     command : sudo systemctl start docker
 # This will alway remove the containers so that we will not get port already used error.
   - name : Remove all container
-    command : sudo docker rm -f $(docker ps -aq)
+    command : sudo docker rm -f $(sudo docker ps -aq)
 
   - name : Start Docker Service
     command : sudo docker run -dt -p 8081:8081 --name finance-project soumyaranjanrout0/finance-image:v1
