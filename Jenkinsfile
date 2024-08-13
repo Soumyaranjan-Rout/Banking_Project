@@ -35,8 +35,8 @@ pipeline{
         }
         stage('Docker login'){
             steps{
-                withCredentials([usernameColonPassword(credentialsId: 'dockerhubpwd', variable: 'dockerhubpassword')]) {
-                    sh 'docker login -u soumyaranjanrout0 -p ${dockerhubpassword}'
+                withCredentials([string(credentialsId: 'dockerhublogin', variable: 'dockerhublogin')]) {
+                    sh 'docker login -u soumyaranjanrout0 -p ${dockerhublogin}'
                 }
             }
         }
