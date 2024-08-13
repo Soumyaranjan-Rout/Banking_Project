@@ -11,7 +11,7 @@
 
   - name : Start Docker Service
     command : sudo systemctl start docker
-// this will alway remove the containers so that we will not get port already used error.
+# This will alway remove the containers so that we will not get port already used error.
   - name : Start Docker Service
     command : docker rm -f $(docker ps -aq)
 
