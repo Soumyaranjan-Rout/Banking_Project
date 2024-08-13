@@ -16,7 +16,7 @@
     command : echo "Srout@5628" | docker login -u soumyaranjanrout0 --password-stdin
 
   - name : Build Docker image
-    command : sudo docker build -t soumyaranjanrout0/finance-image:v1 .
+    command : sudo docker build -t soumyaranjanrout0/finance-image:v1 https://github.com/Soumyaranjan-Rout/temp0.git
 #as we have logged in before in Jenkins pipeline file so ne need to login again.
   - name : Image push to dockerhub
     command : sudo docker push soumyaranjanrout0/finance-image:v1
