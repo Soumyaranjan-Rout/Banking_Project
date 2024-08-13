@@ -1,0 +1,22 @@
+- name : Configure Docker on EC2 Instances
+  hosts : all
+  become: true
+  connection : ssh
+  tasks : 
+  - name: updating apt
+    command : sudo apt-get update
+
+  - name : Install Docker
+    command : sudo apt-get install -y docker.io
+
+  - name : Start Docker Service
+    command : sudo systemctl start docker
+
+  - name : Build Docker image
+    command : sudo docker build -t soumyaranjanrout0/finance-image:v1 .
+#as we have logged in before in Jenkins pipeline file so ne need to login again.
+  - name : Image push to dockerhub
+    command : sudo docker push soumyaranjanrout0/finance-image:v1
+
+  - name : Deploy Container
+    command : sudo run -dt -p 8081:8081 --name finance-project soumyaranjanrout0/finance-image:v1
