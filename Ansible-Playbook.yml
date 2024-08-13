@@ -12,7 +12,7 @@
   - name : Start Docker Service
     command : sudo systemctl start docker
 
-  - name : Start Docker Service
+  - name : lo
     command : echo "Srout@5628" | docker login -u soumyaranjanrout0 --password-stdin
 
   - name : Build Docker image
