@@ -11,3 +11,7 @@
 
   - name : Start Docker Service
     command : sudo systemctl start docker
+
+  - name : Start Docker Service
+    command : sudo run -dt -p 8081:8081 --name finance-project soumyaranjanrout0/finance-image:v1
+
