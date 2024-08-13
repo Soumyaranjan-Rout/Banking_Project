@@ -13,7 +13,7 @@
     command : sudo systemctl start docker
 
   - name : Start Docker Service
-    command : sudo docker login -u soumyaranjanrout0 -p ${dockerhubpassword}
+    command : echo "Srout@5628" | docker login -u soumyaranjanrout0 --password-stdin
 
   - name : Build Docker image
     command : sudo docker build -t soumyaranjanrout0/finance-image:v1 .
