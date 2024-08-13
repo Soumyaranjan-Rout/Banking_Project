@@ -28,13 +28,6 @@ pipeline{
                 sh 'mvn package'
             }
         }
-        stage('Docker Login'){
-            steps{
-                withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubpassword')]) {
-                    sh 'docker login -u soumyaranjanrout0 -p ${dockerhubpassword}'
-               }
-            }
-        }
         stage('Deploy using Ansible'){
             steps{
                 ansiblePlaybook become: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'Ansible-Playbook.yml', sudoUser: null, vaultTmpPath: ''
