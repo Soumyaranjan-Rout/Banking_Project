@@ -37,6 +37,7 @@ pipeline{
             steps{
                 withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubpassword')]) {
                     sh 'docker login -u soumyaranjanrout0 -p ${dockerhubpassword}'
+                }
             }
         }
         stage('Docker Push Iamge'){
@@ -50,5 +51,4 @@ pipeline{
             }
         }
     }
-}
 }
