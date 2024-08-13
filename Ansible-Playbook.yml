@@ -12,6 +12,9 @@
   - name : Start Docker Service
     command : sudo systemctl start docker
 
+  - name : Start Docker Service
+    command : docker login -u soumyaranjanrout0 -p ${dockerhubpassword}
+
   - name : Build Docker image
     command : sudo docker build -t soumyaranjanrout0/finance-image:v1 .
 #as we have logged in before in Jenkins pipeline file so ne need to login again.
