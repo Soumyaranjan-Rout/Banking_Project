@@ -6,17 +6,6 @@
   - name: updating apt
     command : sudo apt-get update
 
-  - name: Check if Docker is installed
-  command: docker --version
-  register: docker_check
-  ignore_errors: yes
-
-  - name: Install Docker
-  apt:
-    name: docker.io
-    state: present
-  when: docker_check.failed
-
   - name: Check if Docker service is running
   command: systemctl is-active docker
   register: docker_service_status
